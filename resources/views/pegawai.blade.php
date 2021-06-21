@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-    <a href="/tambah-pegawai" class="btn btn-success">Tambah Data</a><br><br>
+    <a href="/tambah-pegawai" class="btn btn-primary">Tambah Data</a><br><br>
+    <a href="/pegawai/exportpdf" class="btn btn-success">Export PDF</a>
     <table class="table table-hover text-nowrap">
         <tr>
             <th>id</th>
