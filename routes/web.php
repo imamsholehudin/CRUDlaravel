@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\PeriodeController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -26,8 +27,9 @@ Route::get('/master2', function () {
 });
 
 Route::get('/', [AdminController::class, 'index']);
-Route::get('/dashboard', [AdminController::class, 'dashboard']);
+Route::get('/dashboard', [PeriodeController::class, 'index']);
 Route::get('/pegawai', [PegawaiController::class, 'index']);
+Route::get('/periode', [PeriodeController::class, 'index']);
 Route::get('/tambah-pegawai', [PegawaiController::class, 'tambah']);
 Route::post('/simpan-pegawai', [PegawaiController::class, 'store']);
 Route::get('/pegawai/edit/{id}', [PegawaiController::class, 'edit']);
@@ -35,3 +37,9 @@ Route::get('/pegawai/edit/{id}', [PegawaiController::class, 'edit']);
 Route::get('/pegawai/hapus/{id}', [PegawaiController::class, 'hapus']);
 Route::post('/pegawai/update', [PegawaiController::class, 'update']);
 Route::get('/pegawai/exportpdf', [PegawaiController::class, 'exportPDF']);
+Route::get('/pegawai/tester', [PegawaiController::class, 'tester']);
+Route::get('/periode/tambah', [PeriodeController::class, 'tambah']);
+Route::post('/periode/store', [PeriodeController::class, 'store']);
+Route::get('/periode/edit/{id}', [PeriodeController::class, 'edit']);
+Route::put('/periode/update/{id}', [PeriodeController::class, 'update']);
+Route::get('/periode/hapus/{id}', [PeriodeController::class, 'delete']);

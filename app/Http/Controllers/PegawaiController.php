@@ -65,6 +65,7 @@ class PegawaiController extends Controller
         DB::table('karyawan')->where('id', $id)->delete();
         return redirect('/pegawai');
     }
+    
     public function update(Request $request)
     {
         DB::table('karyawan')->where('id', $request->id)->update([
@@ -79,6 +80,17 @@ class PegawaiController extends Controller
         ]);
         return redirect('/pegawai');
     }
+
+    public function tester(){
+        $query = DB::table('hitung')
+        ->join('karyawan', 'hitung.id_karyawan', '=', 'karyawan.id')
+        ->join('periode', 'hitung.id_periode', '=', 'periode.id')
+        ->select('nama_karyawan','jabatan','gaji_pokok')
+        ->get();
+        var_dump($query);
+
+    }
+
     public function exportPDF()
     {       
         $query = DB::table('karyawan')->get();
